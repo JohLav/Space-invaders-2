@@ -1,0 +1,230 @@
+@property --gradient-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+:root {
+  --clr-1: #052b2f;
+  --clr-2: #073438;
+  --clr-3: #0e4b50;
+  --clr-4: #2d8f85;
+  --clr-5: #606ebf;
+  --clr-6: #c2c4f2;
+  --clr-7: #3c3e73;
+  --clr-white: white;
+  --clr-black: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  /*text-align: center;*/
+}
+
+body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url('../assets/images/Space.png') repeat 0 0;
+  width: 100vw;
+  height: 100vh;
+  animation: galaxy 50s linear infinite;
+}
+
+@keyframes galaxy {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 100vh;
+  }
+}
+
+/* Menu */
+
+#menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  /*align-items: center;*/
+  /*width: 40%;*/
+  top: 50%;
+  left: 50%;
+  gap: 20px;
+  padding: 55px;
+  /*font-family: SuperPixel, serif;*/
+  /*border-radius: 1.5rem;*/
+  transform: translate(-50%, -50%);
+}
+
+#menu::after {
+  content: '';
+  position: absolute;
+  inset: -0.5rem;
+  background: conic-gradient(
+    from var(--gradient-angle),
+    var(--clr-4),
+    var(--clr-7),
+    var(--clr-4),
+    var(--clr-7),
+    var(--clr-4)
+  );
+  animation: rotation 20s linear infinite;
+}
+
+#titleMenu {
+  text-align: center;
+}
+
+#titleMenu,
+#contentMenu,
+#startBtn {
+  z-index: 2;
+}
+
+#contentMenu {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: var(--clr-white);
+  text-shadow: 1px 1px 1px var(--clr-7);
+  font-size: 1.1rem;
+}
+
+#startBtn {
+  padding: 12px 36px;
+  font-size: 1.3rem;
+  border-radius: 20px;
+  background-color: var(--clr-5);
+  color: white;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 6px var(--clr-7);
+  border: 1px solid var(--clr-7);
+  text-shadow: 1px 1px 0 var(--clr-7);
+}
+
+#startBtn:hover {
+  box-shadow: 0 4px var(--clr-7);
+  top: 2px;
+  color: var(--clr-white);
+}
+
+/*#startBtn:active {*/
+/*  box-shadow: 0 0 var(--clr-7);*/
+/*  top: 6px;*/
+/*}*/
+
+#titleMenu {
+  font-size: 3rem;
+  color: white;
+  text-shadow: 3px 3px 0 var(--clr-7);
+}
+
+#menu::after {
+  filter: blur(3.5rem);
+}
+
+@keyframes rotation {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
+}
+
+/* Bottom container */
+
+#bottom-container {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  align-items: center;
+  width: 100vw;
+  height: 10vh;
+  bottom: 0;
+  color: var(--clr-white);
+  font-size: 1.5rem;
+}
+
+/* Tutorial */
+
+#tutorial {
+  display: none;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  padding: 10px;
+  position: absolute;
+  top: 15%;
+  left: 25%;
+  height: 60%;
+  width: 50%;
+}
+
+#tutorial p {
+  margin: 3rem;
+  display: flex;
+  align-items: center;
+  height: 2rem;
+}
+
+#tutorial img {
+  padding: 1rem;
+}
+.move-img {
+  transition: transform 2s;
+}
+.move-img#arrow-left-key {
+  animation: pressAnimationLeft .5s alternate infinite;
+}
+.move-img#arrow-right-key {
+  animation: pressAnimationRight .5s alternate infinite;
+}
+.move-img#space-key {
+  animation: pressAnimationLeft .5s alternate infinite;
+}
+
+@keyframes pressAnimationLeft {
+  from {
+    transform: scale(.8);
+  }
+  to {
+    transform: scale(.7);
+  }
+}
+@keyframes pressAnimationRight {
+  from {
+    transform: scale(.7);
+  }
+  to {
+    transform: scale(.8);
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  animation: fadeOut 8s ease-out;
+}

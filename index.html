@@ -1,15 +1,67 @@
 <!doctype html>
-<html lang="FR">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Space Invaders 2</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/app.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Orbitron:wght@400..900&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet"
+  />
+  <script defer type="module" src="./js/app.js"></script>
+  <title>Space Invaders 2</title>
 </head>
 <body>
-<canvas id="game"></canvas>
+<canvas id="canvas"></canvas>
+<div id="menu">
+  <h1 id="titleMenu">SPACE INVADERS 2</h1>
+  <p id="contentMenu">
+    Dans les profondeurs inexplorées de l'espace, une menace puissante se
+    profile à l'horizon. Les redoutables extraterrestres 👾 connus sous le
+    nom d'envahisseurs Zorgon se rassemblent pour envahir la planète Terre
+    et conquérir la galaxie. <br>
+    En tant que commandant de la coalition interstellaire 🧑‍🚀, la survie de
+    l'humanité repose sur vos épaules. <br>
+    Équipez-vous, pilotez votre vaisseau spatial 🛸 et préparez-vous à
+    affronter l'ennemi dans une bataille épique pour la liberté et la paix
+    🦾.<br>
+  </p>
+  <button id="startBtn">Start</button>
+</div>
+<div id="tutorial">
+  <p>Utilisez
+    <img
+      src="./assets/images/keyboard/arrow-left.png"
+      class="move-img"
+      id="arrow-left-key"
+      alt="Arrow left key">
+    et
+    <img
+      src="./assets/images/keyboard/arrow-right.png"
+      class="move-img"
+      id="arrow-right-key"
+      alt="Arrow right key">
+    pour vous déplacer
+  </p>
+  <p>Appuyez sur
+    <img src="assets/images/keyboard/space-key.png"
+         class="move-img"
+         id="space-key"
+         alt="Space key">
+    pour tirer
+  </p>
+</div>
+<div id="bottom-container">
+  <div id="lives"></div>
+  <div id="toKill"></div>
+  <div id="level"></div>
+  <div id="bonus"></div>
+</div>
 </body>
 </html>
